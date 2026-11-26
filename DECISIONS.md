@@ -20,3 +20,11 @@ Small reviewed steps (propose → approve → write → explain → verify → c
 **Status:** tentative
 - MAE-pretrained 3D ViT encoder, used inside UNETR for segmentation; scratch UNETR as control.
 - Small instruct LLM (1.5–3B, Qwen class) + MLP projector, LLaVA-style two-stage training.
+
+## 2026-11-26: Chest-only domain
+**Status:** decided
+Supersedes the segmentation/pretraining parts of "Datasets" above.
+- Segmentation benchmark: MSD Task06 Lung (lung tumours), replacing Task09 Spleen.
+- MAE pretraining pool: chest CT only (CT-RATE subset + MSD Lung images).
+- Report generation: CT-RATE (access granted), one reconstruction per scan, subset downloaded locally; only preprocessed data goes to cloud.
+**Why:** one anatomical domain across all three phases, so the encoder that serves segmentation also serves report generation. Trade-off: lung tumours are small and hard, so low-data Dice will be lower and noisier than spleen would have been.
