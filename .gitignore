@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Data (never commit medical data)
+data/raw/
+data/processed/
+*.nii
+*.nii.gz
+*.npy
+*.npz
+*.dcm
+
+# Models and experiment outputs
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+wandb/
+outputs/
+
+# Secrets
+.env
